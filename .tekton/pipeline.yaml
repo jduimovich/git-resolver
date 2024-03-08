@@ -12,7 +12,7 @@ spec:
     - name: git-clone
       params:
         - name: url
-          value:  https://github.com/jduimovich/acs-test
+          value:  https://github.com/jduimovich/git-resolver
         - name: revision
           value: main
       taskRef:
