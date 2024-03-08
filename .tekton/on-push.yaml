@@ -1,11 +1,14 @@
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
-  name: git-resolver
+  name: git-resolver-test 
   annotations:
     pipelinesascode.tekton.dev/on-event: "[push]"
-    pipelinesascode.tekton.dev/on-target-branch: "[main]"   
-   labels:
+    pipelinesascode.tekton.dev/on-target-branch: "[main]" 
+    pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/jduimovich/rhtap-catalog/main/pipeline/git-resolver-test/0.1/git-resolver-test.yaml"
+    pipelinesascode.tekton.dev/task-0: "https://raw.githubusercontent.com/jduimovich/rhtap-catalog/main/task/git-clone/0.1/git-clone.yaml"
+    pipelinesascode.tekton.dev/task-1: "https://raw.githubusercontent.com/jduimovich/rhtap-catalog/main/task/print-message/0.1/print-message.yaml"
+  labels:
     argocd/app-name: acs-test
     janus-idp.io/tekton: acs-test
     backstage.io/kubernetes-id: acs-test
@@ -13,19 +16,12 @@ metadata:
     app.kubernetes.io/part-of: acs-test
 spec: 
   params:
+  - name: git-url
+    value: "https://github.com/jduimovich/junko"
   - name: message
     value: "Hello"
-  - name: git-url
-    value: "https://github.com/jduimovich/git-resolver"
-  pipelineRef: 
-    resolver: git
-    params:
-    - name: url
-      value: https://github.com/jduimovich/rhtap-catalog.git
-    - name: revision
-      value: main
-    - name: pathInRepo
-      value: pipeline/git-resolver-test/0.1/git-resolver-test.yaml
+  pipelineRef:
+    name: git-resolver-pipeline
   workspaces: 
     - name: workspace
       volumeClaimTemplate:
