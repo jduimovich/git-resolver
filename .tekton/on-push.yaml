@@ -21,7 +21,7 @@ spec:
   - name: message
     value: "Hello"
   pipelineRef:
-    name: git-resolver-pipeline
+    name: git-resolver-test
   workspaces: 
     - name: workspace
       volumeClaimTemplate:
