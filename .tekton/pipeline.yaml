@@ -16,16 +16,13 @@ spec:
         - name: revision
           value: main
       taskRef:
-        name: git-clone 
-      workspaces:
-        - name: output
-          workspace: workspace
+        name: git-clone  
     - name: print-message
       params:
         - name: message
           value:  "hi mom" 
       taskRef:
         name: print-message
-      workspaces:
-        - name: output
-          workspace: workspace
+  workspaces:
+    - name: output
+      workspace: workspace
