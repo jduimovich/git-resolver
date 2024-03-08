@@ -7,7 +7,8 @@ metadata:
     pipelinesascode.tekton.dev/on-target-branch: "[main]" 
     pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/jduimovich/git-resolver/main/.tekton/pipeline.yaml"
     pipelinesascode.tekton.dev/task-0: "https://raw.githubusercontent.com/redhat-appstudio/tssc-sample-pipelines/main/pac/tasks/git-clone.yaml"
-    pipelinesascode.tekton.dev/task-1: "https://raw.githubusercontent.com/jduimovich/git-resolver/main/.tekton/print-message.yaml" labels:
+    pipelinesascode.tekton.dev/task-1: "https://raw.githubusercontent.com/jduimovich/git-resolver/main/.tekton/print-message.yaml" 
+  labels:
     argocd/app-name: acs-test
     janus-idp.io/tekton: acs-test
     backstage.io/kubernetes-id: acs-test
@@ -18,7 +19,7 @@ spec:
   - name: message
     value: "Hello"
   pipelineRef:
-    name: git-resolver-pipeline
+    name: git-resolver
   workspaces: 
     - name: workspace
       volumeClaimTemplate:
