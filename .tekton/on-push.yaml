@@ -6,8 +6,8 @@ metadata:
     pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: "[main]" 
     pipelinesascode.tekton.dev/pipeline: "https://raw.githubusercontent.com/jduimovich/rhtap-catalog/main/pipeline/git-resolver-test/0.1/git-resolver-test.yaml"
-    xxxpipelinesascode.tekton.dev/task-0: "https://raw.githubusercontent.com/jduimovich/rhtap-catalog/main/task/git-clone/0.1/git-clone.yaml"
-    xxxpipelinesascode.tekton.dev/task-1: "https://raw.githubusercontent.com/jduimovich/rhtap-catalog/main/task/print-message/0.1/print-message.yaml"
+    xxxpipelinesascode.tekton.dev/task-1: "https://raw.githubusercontent.com/jduimovich/rhtap-catalog/main/task/git-clone/0.1/git-clone.yaml"
+    pipelinesascode.tekton.dev/task-0: ".tekton/print-message.yaml"
   labels:
     argocd/app-name: acs-test
     janus-idp.io/tekton: acs-test
