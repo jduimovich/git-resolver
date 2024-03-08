@@ -4,8 +4,7 @@ metadata:
   name: git-resolver
   annotations:
     pipelinesascode.tekton.dev/on-event: "[push]"
-    pipelinesascode.tekton.dev/on-target-branch: "[main]"  
-    pipelinesascode.tekton.dev/task-0: ".tekton/print-message.yaml" 
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"   
    labels:
     argocd/app-name: acs-test
     janus-idp.io/tekton: acs-test
