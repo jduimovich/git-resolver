@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
-  name: pac-pipeline-annotation 
+  name: git-resolver
   annotations:
     pipelinesascode.tekton.dev/on-event: "[push]"
     pipelinesascode.tekton.dev/on-target-branch: "[main]" 
@@ -18,7 +18,7 @@ spec:
   - name: message
     value: "Hello"
   pipelineRef:
-    name: pac-pipeline
+    name: git-resolver-pipeline
   workspaces: 
     - name: workspace
       volumeClaimTemplate:
